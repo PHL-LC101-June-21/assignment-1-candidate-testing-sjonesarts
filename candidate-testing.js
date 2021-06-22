@@ -33,16 +33,13 @@ return candidateAnswers
 
 function gradeQuiz() {
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-  console.log (candidateAnswers)
-  console.log (correctAnswers)
   let numberCorrect = 0;
-  for (let i = 0; i <= questions.length - 1; i++) {
-    if (candidateAnswers[i].toLowerCase == correctAnswers[i].toLowerCase()) { 
-  numberCorrect++;
-  }
-  console.log (numberCorrect)
-  }
 
+    for (let i = 0; i <= questions.length - 1; i++) {
+      if (candidateAnswers[i] === correctAnswers[i]) { 
+      numberCorrect++;
+      }
+    }
   let grade = numberCorrect/questions.length * 100
   console.log (grade)
 
