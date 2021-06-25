@@ -23,9 +23,9 @@ function askForName() {
 
 function askQuestion() {
   for (let i = 0; i <= questions.length - 1; i++) {
-    quizAnswer= input.question("Question: " + questions[i])
+    quizAnswer= input.question(`Question ${i + 1}: ${questions[i]}`)
     candidateAnswers.push(quizAnswer)
-    console.log (`Your answer: ${quizAnswer} \nCorrect answer: ${correctAnswers[i]}`)
+    console.log (`Your answer: ${quizAnswer} \nCorrect answer: ${correctAnswers[i]}\n`)
   }
   
 return candidateAnswers
@@ -33,26 +33,31 @@ return candidateAnswers
 
 function gradeQuiz() {
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-  let numberCorrect = 0;
+  let numberCorrect = -1;
 
-    for (let i = 0; i <= questions.length - 1; i++) {
+    for (let i = 0; i <= 5; i++) {
       if (candidateAnswers[i] === correctAnswers[i]) { 
       numberCorrect++;
-      }
+      } 
     }
-  let grade = numberCorrect/questions.length * 100
-  console.log (grade)
+    
+  let grade = numberCorrect/5 * 100
 
-  return grade
+if (grade >= 80) {
+  return console.log(`Overall Grade: ${grade}%.\nQuiz Passed!`)
+ } else {
+   return console.log(`Overall Grade: ${grade}%.\nQuiz Failed!`)
+ }
 }
 
 function runProgram() {
   askForName();
-  console.log(`Hello, ${candidateName}!`)
+  console.log(`Hello, ${candidateName}!\n`)
   // TODO 1.1c: Ask for candidate's name //
   
   askQuestion();
   gradeQuiz(this.candidateAnswers);
+
 }
 
 // Don't write any code below this line //
