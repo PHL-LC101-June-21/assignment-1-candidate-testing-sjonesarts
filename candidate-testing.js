@@ -2,7 +2,7 @@ const input = require('readline-sync');
 
 // TODO 2: modify your quiz app to ask 5 questions //
 
-// TODO 1.1a: Define candidateName // 
+// TODO 1.1a: Define candidateName// 
 let candidateName = ''
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
 let question = "Who was the First American woman in space? ";
@@ -36,7 +36,7 @@ function gradeQuiz() {
   let numberCorrect = -1;
 
     for (let i = 0; i <= 5; i++) {
-      if (candidateAnswers[i] === correctAnswers[i]) { 
+      if (String(candidateAnswers[i]).toUpperCase() == String(correctAnswers[i]).toUpperCase()) { 
       numberCorrect++;
       } 
     }
@@ -44,10 +44,11 @@ function gradeQuiz() {
   let grade = numberCorrect/5 * 100
 
 if (grade >= 80) {
-  return console.log(`Overall Grade: ${grade}%.\nQuiz Passed!`)
+  console.log(`Overall Grade: ${grade}%.\nQuiz Passed!`)
  } else {
-   return console.log(`Overall Grade: ${grade}%.\nQuiz Failed!`)
+  console.log(`Overall Grade: ${grade}%.\nQuiz Failed!`)
  }
+ return grade
 }
 
 function runProgram() {
